@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+:root {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: #faf9f5; /* Warm Organic Cream */
+  color: #2d2a26; /* Earthy Dark Gray */
+  overflow-x: hidden;
+}
+
+/* Elegant serif headings */
+.font-serif {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+/* Clean Cards */
+.organic-card {
+  background-color: #ffffff;
+  border: 1px solid #f0edf0;
+  box-shadow: 0 4px 20px -2px rgba(120, 110, 90, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.organic-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(120, 110, 90, 0.08), 0 4px 8px -2px rgba(120, 110, 90, 0.03);
+}
+
+/* Supplier Portal inputs */
+.organic-input {
+  background-color: #ffffff;
+  border: 1px solid #e4e2dd;
+  color: #2d2a26;
+  transition: all 0.15s ease-in-out;
+}
+
+.organic-input:focus {
+  border-color: #059669; /* Emerald 600 */
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.1);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #faf9f5;
+}
+::-webkit-scrollbar-thumb {
+  background: #e4e2dd;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #c7c4bb;
+}

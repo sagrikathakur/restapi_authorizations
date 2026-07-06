@@ -1,0 +1,26 @@
+{
+  "name": "crudrestapi",
+  "version": "1.0.0",
+  "description": "Production ready microservices REST API",
+  "main": "index.js",
+  "type": "module",
+  "workspaces": [
+    "gateway",
+    "services/auth",
+    "services/food",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently --kill-others \"npm run dev -w gateway\" \"npm run dev -w services/auth\" \"npm run dev -w services/food\" \"npm run dev -w client\"",
+    "start": "concurrently --kill-others \"npm run start -w gateway\" \"npm run start -w services/auth\" \"npm run start -w services/food\" \"npm run start -w client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "dotenv": "^17.4.2",
+    "nodemon": "^3.1.14"
+  }
+}
