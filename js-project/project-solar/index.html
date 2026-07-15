@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cosmos Explorer: 3D Solar System Simulation</title>
+  <meta name="description" content="An immersive 3D simulation of our Solar System with premium glassmorphism interfaces, smooth camera glide focus, realistic/ambient lighting, and procedural audio drone.">
+  <meta name="author" content="Antigravity AI">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Orbitron:wght@400;600;800;900&display=swap" rel="stylesheet">
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="./style.css">
+  
+  <!-- Import Map for Three.js and OrbitControls -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.127.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.127.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Canvas Viewport -->
+  <div id="canvas-container"></div>
+
+  <!-- Cosmic HUD Overlay -->
+  <div id="hud-overlay">
+    <!-- Header -->
+    <header class="hud-header glass-card">
+      <div class="header-logo">
+        <span class="logo-icon">🪐</span>
+        <div class="logo-text">
+          <h1>COSMOS EXPLORER</h1>
+          <p>Interactive 3D Solar System</p>
+        </div>
+      </div>
+      <div class="simulation-time" id="sim-time-display">
+        Year 0, Day 000
+      </div>
+    </header>
+
+    <!-- Left Controls Panel -->
+    <aside class="hud-panel left-panel glass-card" id="control-center">
+      <h2>CONTROL CENTER</h2>
+      <div class="panel-section">
+        <div class="control-row">
+          <button id="btn-play-pause" class="btn btn-primary" title="Play/Pause Simulation">
+            <span class="icon">⏸</span> <span class="text">PAUSE</span>
+          </button>
+          <button id="btn-reset" class="btn btn-secondary" title="Reset Camera and Speed">
+            <span class="icon">🔄</span> RESET
+          </button>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <label for="slider-speed">ORBITAL SPEED</label>
+        <div class="slider-container">
+          <input type="range" id="slider-speed" min="0" max="10" step="0.1" value="1.0">
+          <span class="slider-badge" id="speed-badge">1.0x</span>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <h3>SIMULATION SETTINGS</h3>
+        <div class="toggle-group">
+          <div class="toggle-item">
+            <span>Realistic Lighting</span>
+            <label class="switch">
+              <input type="checkbox" id="toggle-real-view" checked>
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+          <div class="toggle-item">
+            <span>Show Orbit Trails</span>
+            <label class="switch">
+              <input type="checkbox" id="toggle-show-paths" checked>
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+          <div class="toggle-item">
+            <span>Twinkling Stars</span>
+            <label class="switch">
+              <input type="checkbox" id="toggle-stars-twinkle" checked>
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+          <div class="toggle-item">
+            <span>Ambient Space Drone</span>
+            <label class="switch">
+              <input type="checkbox" id="toggle-ambient-sound">
+              <span class="slider-switch"></span>
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-section">
+        <h3>CAMERA MODE</h3>
+        <div class="camera-mode-tabs">
+          <button id="cam-free" class="tab-btn active">Free Roam</button>
+          <button id="cam-focus" class="tab-btn" disabled>Target Focus</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Right Info Panel (Drawer) -->
+    <aside class="hud-panel right-panel glass-card" id="planet-info-panel">
+      <button class="panel-close" id="btn-close-info">&times;</button>
+      <div id="planet-info-content" class="info-content-empty">
+        <div class="empty-state">
+          <span class="empty-icon">☄️</span>
+          <h3>NO PLANET SELECTED</h3>
+          <p>Click on any planet in the viewport or select one from the deck below to display orbital specs and facts.</p>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Bottom Dock (Planet Selector) -->
+    <footer class="hud-footer">
+      <div class="planet-deck-container glass-card">
+        <div class="deck-scroll-btn prev" id="deck-prev">&lsaquo;</div>
+        <div class="planet-deck" id="planet-deck-items">
+          <!-- Dynamically populated -->
+        </div>
+        <div class="deck-scroll-btn next" id="deck-next">&rsaquo;</div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- JavaScript Entrypoint -->
+  <script src="./main.js" type="module"></script>
+</body>
+</html>
