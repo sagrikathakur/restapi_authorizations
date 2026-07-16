@@ -1,0 +1,72 @@
+.place-order {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 50px;
+  margin: 100px 0px;
+}
+
+.place-order-left {
+  width: 100%;
+  max-width: max(30vw, 400px);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.place-order-left .title {
+  font-size: 30px;
+  font-weight: 600;
+  color: #262626;
+  margin-bottom: 30px;
+}
+
+.place-order-left input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #c5c5c5;
+  border-radius: 4px;
+  outline: none;
+  font-size: 15px;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.place-order-left input:focus {
+  border-color: #ff6347; /* tomato */
+}
+
+.place-order-left .multi-fields {
+  display: flex;
+  gap: 10px;
+}
+
+.place-order-right {
+  width: 100%;
+  max-width: max(30vw, 400px);
+}
+
+.place-order-right .cart-total {
+  /* Inherits styles from Cart.css, but we can add customized margins here if needed */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.place-order-right .cart-total button {
+  margin-top: 30px;
+}
+
+@media (max-width: 900px) {
+  .place-order {
+    flex-direction: column;
+    gap: 50px;
+    margin: 50px 0px;
+  }
+  .place-order-left {
+    max-width: 100%;
+  }
+  .place-order-right {
+    max-width: 100%;
+  }
+}
